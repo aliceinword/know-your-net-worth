@@ -44,3 +44,4 @@ temp/
 
 # Vercel
 .vercel
+node_modules
