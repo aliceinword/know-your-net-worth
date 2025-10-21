@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: know-your-net-worth
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

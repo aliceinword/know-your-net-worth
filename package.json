@@ -10,7 +10,7 @@
     "start": "vite",
     "deploy": "npm run build && gh-pages -d dist"
   },
-  "homepage": "https://aliceinword.github.io/know-your-net-worth",
+  "homepage": "/know-your-net-worth",
   "dependencies": {
     "docx": "^9.5.1",
     "file-saver": "^2.0.5",
