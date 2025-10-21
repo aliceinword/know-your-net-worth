@@ -138,24 +138,47 @@ function App_Fixed() {
   // Authentication removed - direct access to application
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#f8fafc', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ 
+      minHeight: '100vh', 
+      backgroundColor: '#f8fafc', 
+      display: 'flex', 
+      flexDirection: 'column',
+      padding: '0',
+      margin: '0',
+      width: '100%',
+      overflowX: 'hidden'
+    }}>
       {/* Header */}
       <header style={{ background: 'linear-gradient(135deg, #374151, #4b5563)', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 0' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center', 
+            padding: '1rem 0',
+            flexWrap: 'wrap',
+            gap: '1rem'
+          }}>
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '1rem',
+              flex: '1',
+              minWidth: '200px'
+            }}>
               {/* Logo */}
               <div style={{ 
                 display: 'flex', 
                 alignItems: 'center', 
                 justifyContent: 'center',
-                width: '60px', 
-                height: '60px', 
+                width: '50px', 
+                height: '50px', 
                 backgroundColor: 'rgba(255, 255, 255, 0.1)', 
                 borderRadius: '12px',
-                border: '2px solid rgba(255, 255, 255, 0.2)'
+                border: '2px solid rgba(255, 255, 255, 0.2)',
+                flexShrink: 0
               }}>
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   {/* Dollar Sign */}
                   <path d="M16 4V8M16 24V28M20 8C18.5 6.5 16.5 6 16 6C14.5 6 13.5 6.5 12.5 7.5C11.5 8.5 11 10 11 12C11 13.5 11.5 15 12.5 16C13.5 17 14.5 17.5 16 17.5C17.5 17.5 18.5 18 19.5 19C20.5 20 21 21.5 21 23C21 24.5 20.5 26 19.5 27C18.5 28 17.5 28.5 16 28.5C14.5 28.5 13.5 28 12.5 27C11.5 26 11 24.5 11 23" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   {/* Chart Bars */}
@@ -167,15 +190,36 @@ function App_Fixed() {
                 </svg>
               </div>
               
-              <div style={{ color: 'white' }}>
-                <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', margin: 0 }}>Know Your Net Worth</h1>
-                <p style={{ color: '#dbeafe', fontSize: '0.875rem', margin: 0 }}>Financial Disclosure System</p>
+              <div style={{ color: 'white', minWidth: 0 }}>
+                <h1 style={{ 
+                  fontSize: 'clamp(1.2rem, 4vw, 1.5rem)', 
+                  fontWeight: 'bold', 
+                  margin: 0,
+                  lineHeight: '1.2'
+                }}>Know Your Net Worth</h1>
+                <p style={{ 
+                  color: '#dbeafe', 
+                  fontSize: 'clamp(0.75rem, 3vw, 0.875rem)', 
+                  margin: 0,
+                  lineHeight: '1.2'
+                }}>Financial Disclosure System</p>
               </div>
             </div>
             
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              {/* Save Status */}
-              <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', borderRadius: '0.5rem', padding: '0.5rem 1rem' }}>
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.5rem',
+              flexWrap: 'wrap',
+              justifyContent: 'flex-end'
+            }}>
+              {/* Save Status - Hidden on mobile */}
+              <div style={{ 
+                backgroundColor: 'rgba(255, 255, 255, 0.1)', 
+                borderRadius: '0.5rem', 
+                padding: '0.5rem 1rem',
+                display: window.innerWidth < 768 ? 'none' : 'block'
+              }}>
                 <div style={{ color: 'white', fontSize: '0.875rem' }}>
                   {isSaving ? (
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -249,35 +293,61 @@ function App_Fixed() {
       {/* Navigation */}
       <div style={{ backgroundColor: 'white', boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 0' }}>
-            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'space-between', 
+            padding: '1rem 0',
+            flexWrap: 'wrap',
+            gap: '1rem'
+          }}>
+            <div style={{ 
+              display: 'flex', 
+              gap: '0.25rem', 
+              flexWrap: 'wrap',
+              overflowX: 'auto',
+              flex: '1',
+              minWidth: '0'
+            }}>
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   style={{
-                    padding: '0.75rem 1rem',
+                    padding: '0.5rem 0.75rem',
                     border: 'none',
                     borderRadius: '0.5rem',
                     backgroundColor: activeTab === tab.id ? '#1e40af' : 'transparent',
                     color: activeTab === tab.id ? 'white' : '#374151',
                     cursor: 'pointer',
-                    fontSize: '0.875rem',
+                    fontSize: 'clamp(0.75rem, 3vw, 0.875rem)',
                     fontWeight: '500',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.5rem'
+                    gap: '0.25rem',
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
+                    minHeight: '40px'
                   }}
                 >
-                  <span>{tab.icon}</span>
-                  {tab.label}
+                  <span style={{ fontSize: 'clamp(0.875rem, 3.5vw, 1rem)' }}>{tab.icon}</span>
+                  <span style={{ display: window.innerWidth < 480 ? 'none' : 'inline' }}>{tab.label}</span>
                 </button>
               ))}
             </div>
             
             {/* Role Selector */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ fontSize: '0.875rem', color: '#374151' }}>Role:</span>
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.5rem',
+              flexShrink: 0
+            }}>
+              <span style={{ 
+                fontSize: 'clamp(0.75rem, 3vw, 0.875rem)', 
+                color: '#374151',
+                display: window.innerWidth < 480 ? 'none' : 'inline'
+              }}>Role:</span>
               <select
                 value={userRole}
                 onChange={(e) => setUserRole(e.target.value)}
@@ -285,7 +355,8 @@ function App_Fixed() {
                   padding: '0.5rem',
                   border: '1px solid #d1d5db',
                   borderRadius: '0.375rem',
-                  fontSize: '0.看一下rem'
+                  fontSize: 'clamp(0.75rem, 3vw, 0.875rem)',
+                  minWidth: '100px'
                 }}
               >
                 <option value="plaintiff">Plaintiff</option>
@@ -297,8 +368,17 @@ function App_Fixed() {
       </div>
 
       {/* Main Content */}
-      <main style={{ flex: 1, maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
-        <div style={{ padding: '1.5rem' }}>
+      <main style={{ 
+        flex: 1, 
+        maxWidth: '1280px', 
+        margin: '0 auto', 
+        width: '100%',
+        padding: '0 clamp(0.5rem, 2vw, 1rem)'
+      }}>
+        <div style={{ 
+          padding: 'clamp(1rem, 3vw, 1.5rem)',
+          width: '100%'
+        }}>
           {activeTab === 'dashboard' ? (
             <div style={{ maxWidth: '900px', margin: '0 auto' }}>
               {/* Hero Section */}
