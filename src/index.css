@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom Animations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(37, 99, 235, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.8); }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.4s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Glassmorphism Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #1e40af 0%, #ea7a31 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom Color Classes for Blue and Orange Theme */
+.bg-primary-blue {
+  background-color: #1e40af;
+}
+
+.bg-secondary-blue {
+  background-color: #3b82f6;
+}
+
+.bg-light-blue {
+  background-color: #dbeafe;
+}
+
+.bg-primary-orange {
+  background-color: #ea7a31; /* softened primary */
+}
+
+.bg-secondary-orange {
+  background-color: #f5a256; /* softened secondary */
+}
+
+.bg-light-orange {
+  background-color: #ffe9d6; /* lighter, less saturated */
+}
+
+.text-primary-blue {
+  color: #1e40af;
+}
+
+.text-secondary-blue {
+  color: #3b82f6;
+}
+
+.text-primary-orange {
+  color: #ea7a31;
+}
+
+.text-secondary-orange {
+  color: #f5a256;
+}
+
+.border-primary-blue {
+  border-color: #1e40af;
+}
+
+.border-primary-orange {
+  border-color: #ea7a31;
+}
+
+/* Gradient Backgrounds */
+.bg-gradient-blue-orange {
+  background: linear-gradient(135deg, #1e40af 0%, #ea7a31 100%);
+}
+
+.bg-gradient-blue-light {
+  background: linear-gradient(135deg, #dbeafe 0%, #f0f9ff 100%);
+}
+
+/* Soft Accent (neutral warm panel) */
+.bg-soft-accent {
+  background: linear-gradient(145deg, #f8fafc 0%, #fdf7f2 60%, #f9ede2 100%);
+}
+
+/* Soft Accent Border Helper */
+.border-soft-accent {
+  border-color: #f5e4d6;
+}
+
+/* Subtle elevated card with soft accent */
+.card-soft-accent {
+  background: linear-gradient(145deg, #ffffff 0%, #fdf8f4 70%);
+  border: 1px solid #f3e5d9;
+  box-shadow: 0 4px 10px -2px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06);
+}
+
+/* Soft accent text (muted warm) */
+.text-soft-accent {
+  color: #b67230;
+}
