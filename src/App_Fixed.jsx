@@ -218,7 +218,7 @@ function App_Fixed() {
                 backgroundColor: 'rgba(255, 255, 255, 0.1)', 
                 borderRadius: '0.5rem', 
                 padding: '0.5rem 1rem',
-                display: window.innerWidth < 768 ? 'none' : 'block'
+                display: 'block'
               }}>
                 <div style={{ color: 'white', fontSize: '0.875rem' }}>
                   {isSaving ? (
@@ -331,7 +331,7 @@ function App_Fixed() {
                   }}
                 >
                   <span style={{ fontSize: 'clamp(0.875rem, 3.5vw, 1rem)' }}>{tab.icon}</span>
-                  <span style={{ display: window.innerWidth < 480 ? 'none' : 'inline' }}>{tab.label}</span>
+                  <span>{tab.label}</span>
                 </button>
               ))}
             </div>
@@ -345,8 +345,7 @@ function App_Fixed() {
             }}>
               <span style={{ 
                 fontSize: 'clamp(0.75rem, 3vw, 0.875rem)', 
-                color: '#374151',
-                display: window.innerWidth < 480 ? 'none' : 'inline'
+                color: '#374151'
               }}>Role:</span>
               <select
                 value={userRole}
